@@ -1,0 +1,12 @@
+filebeat.inputs:
+  - type: log
+    enabled: true
+    paths:
+      - /usr/share/filebeat/input/*.json  # Path inside the container
+
+output.logstash:
+  hosts: ["logstash:5044"]
+
+# Commented out since you're sending data to Logstash. Remove if not needed.
+# output.elasticsearch:
+#   hosts: ["http://localhost:9200"]  # Not needed if sending to Logstash

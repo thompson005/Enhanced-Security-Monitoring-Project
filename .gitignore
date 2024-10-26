@@ -1,0 +1,3 @@
+# Ignore the Lib directory
+Lib/
+scripts/
