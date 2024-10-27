@@ -11,16 +11,7 @@ The **Security Vulnerability Monitoring System** is an all-in-one solution desig
 - **Elastic Stack Visualization**: Employs Elasticsearch and Kibana to visualize and monitor vulnerability data for an intuitive and actionable overview.
 - **Automated Alerting**: Notifies users of critical vulnerabilities in real time, helping with rapid response and mitigation.
 
-## Architecture
-The system follows a modular architecture composed of distinct components, each responsible for specific functionality:
 
-```
-Collectors -> Enrichment -> Analysis -> Storage -> Visualization
-    │            │            │           │           │
-    └─ CVE      └─ CWE       └─ Severity └─ Elastic  └─ Kibana
-    └─ ExploitDB └─ ThreatInt └─ Trends   └─ JSON
-    └─ GitHub Sec └─ MITRE    └─ Correl.
-```
 
 ### Component Details
 - **Data Collectors**: Retrieve vulnerability data from sources like CVE databases, Exploit-DB, and GitHub Security Advisories.
