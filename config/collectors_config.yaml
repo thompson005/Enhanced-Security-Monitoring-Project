@@ -1,5 +1,5 @@
 cve_api_url: "https://cve.circl.lu/api/last"
 elasticsearch_url: "http://localhost:9200"
-github_token: "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"
+github_token: "your_actual_token"
 exploit_db_url: "https://www.exploit-db.com/exploits/"  # Scrape this site or find an unofficial API
 github_security_url: "https://api.github.com/advisories"
