@@ -1,4 +1,4 @@
-import requests
+# src/enrichment/threat_intel_enricher.py
 
 class ThreatIntelEnricher:
     def enrich(self, cve_data):
@@ -9,5 +9,4 @@ class ThreatIntelEnricher:
         return enriched_data
 
     def fetch_threat_intel(self, cve_id):
-        # Placeholder for fetching threat intelligence
-        return "Threat intelligence data"  # Placeholder implementation
+        return "Threat intelligence data"  # Placeholder for threat intelligence retrieval

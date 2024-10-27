@@ -1,3 +1,5 @@
+# src/collectors/github_security_collector.py
+
 import requests
 import yaml
 from src.utils.logger import logger

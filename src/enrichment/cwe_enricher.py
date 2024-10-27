@@ -1,4 +1,4 @@
-import requests
+# src/enrichment/cwe_enricher.py
 
 class CWEEnricher:
     def enrich(self, cve_data):
@@ -13,5 +13,4 @@ class CWEEnricher:
         return enriched_data
 
     def fetch_cwe_description(self, cwe_id):
-        # Fetch the CWE description based on the ID
-        return "Description for CWE"  # Placeholder implementation
+        return "Description for CWE"  # Placeholder for actual description retrieval
