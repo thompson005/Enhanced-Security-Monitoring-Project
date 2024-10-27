@@ -38,6 +38,42 @@ The integration of the ELK stack (Elasticsearch, Logstash, and Kibana) is critic
 
 3. **Kibana**: Provides a web-based interface for visualizing and exploring the data stored in Elasticsearch. Users can create custom dashboards and visualizations to monitor vulnerabilities and trends effectively.
 
+## Kibana Visualization Features
+The system provides comprehensive visualization capabilities through Kibana:
+
+### Dashboard Components
+- **Vulnerability Timeline**: Interactive timeline showing vulnerability discoveries and updates over time
+- **Severity Distribution**: Pie charts and heat maps displaying the distribution of vulnerability severity levels
+- **Trend Analysis Graphs**: Line and area charts showing vulnerability trends across different categories
+- **Geographic Distribution**: World map visualization of vulnerability impacts by region
+- **Source Distribution**: Breakdown of vulnerabilities by source (CVE, Exploit-DB, GitHub, etc.)
+
+### Custom Visualizations
+1. **Security Metrics Dashboard**:
+   - CVSS score distribution
+   - Vulnerability age analysis
+   - Affected systems overview
+   - Resolution status tracking
+
+2. **Threat Intelligence View**:
+   - Real-time threat indicators
+   - Correlation between different vulnerabilities
+   - Attack vector analysis
+   - Impact assessment metrics
+
+3. **Operational Dashboards**:
+   - Active vulnerability count
+   - Remediation progress tracking
+   - Team performance metrics
+   - SLA compliance monitoring
+
+### Interactive Features
+- **Real-time Filtering**: Dynamic filtering of data based on multiple criteria
+- **Drill-down Capabilities**: Ability to dive deep into specific vulnerability details
+- **Custom Time Ranges**: Flexible time range selection for trend analysis
+- **Export Options**: Data export in multiple formats (CSV, PDF, PNG)
+- **Automated Reports**: Scheduled report generation and distribution
+
 ## Technology Stack
 - **Backend**: Python
 - **Data Storage and Search**: Elasticsearch
@@ -81,6 +117,14 @@ Ensure the following are installed:
 5. **Run the Data Collector**
    ```bash
    python -m src.collectors.cve_collector
+   ```
+
+6. **Access Kibana**
+   ```
+   Open your web browser and navigate to http://localhost:5601
+   Default credentials:
+   Username: elastic
+   Password: changeme
    ```
 
 ## Project Structure
