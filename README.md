@@ -69,5 +69,3 @@ cve_monitoring_system/
 ## Contributing
 Contributions are welcome! Fork the repo, make your changes, and submit a pull request.
 
-## License
-MIT License - See LICENSE file for details
