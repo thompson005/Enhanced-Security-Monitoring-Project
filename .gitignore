@@ -1,3 +1,6 @@
 # Ignore the Lib directory
 Lib/
 scripts/
+Include/
+html/
+src/api/
