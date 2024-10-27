@@ -1,1 +1,2 @@
-cve_api_url: "https://cve.circl.lu/api/last"  # Example URL for CVE data
+cve_api_url: "https://cve.circl.lu/api/last"
+elasticsearch_url: "http://localhost:9200"
