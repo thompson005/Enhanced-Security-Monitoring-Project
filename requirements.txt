@@ -6,5 +6,4 @@ elasticsearch==8.0.0
 requests
 pandas
 pyyaml
-kafka-python
 python-dotenv
