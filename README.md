@@ -1,71 +1,72 @@
 # Security Vulnerability Monitoring System
 
 ## Overview
-A real-time security monitoring solution that tracks, analyzes, and visualizes vulnerability data from multiple sources including CVE databases, Exploit-DB, and GitHub Security Advisories. Built with ELK stack for powerful visualization and analysis.
+The **Security Vulnerability Monitoring System** is a real-time tool that tracks, analyzes, and visualizes vulnerability data from various sources, using the ELK stack for powerful security threat management.
 
 ## Key Features
-- Real-time vulnerability monitoring
-- Automated severity analysis
-- Trend analysis and visualization
-- Multi-source data integration
-- Custom Kibana dashboards
-- Automated alerting system
+- **Real-Time Monitoring**: Live vulnerability data updates
+- **Severity Analysis**: Automated vulnerability prioritization
+- **Trend Visualization**: Security trend insights
+- **Multi-Source Integration**: Combined data from multiple sources
+- **Custom Dashboards**: Easy-to-use Kibana dashboards
 
-## Prerequisites
-- Python 3.7+
-- Docker and Docker Compose
-- pip (Python package manager)
+  
+## Technology Stack
+- **Backend**: Python
+- **Storage**: Elasticsearch
+- **Collection**: requests library
+- **Container**: Docker & Docker Compose
+- **Testing**: Pytest
 
 ## Quick Setup
 
-1. **Clone & Install**
+1. **Install & Configure**
    ```bash
    git clone https://github.com/thompson005/Enhanced-Security-Monitoring-Project.git
    cd Enhanced-Security-Monitoring-Project
    pip install -r requirements.txt
    ```
 
-2. **Start Services**
+2. **Start ELK Stack**
    ```bash
    cd config
    docker-compose up -d
    ```
 
-3. **Run Collector**
+3. **Launch Collector**
    ```bash
    python -m src.collectors.cve_collector
    ```
 
-4. **Access Dashboard**
+4. **View Dashboard**
    ```
    URL: http://localhost:5601
    Username: elastic
    Password: changeme
    ```
 
-## Development Status
+## Status
 
-### Ready to Use
-- ✅ CVE Data Collection
-- ✅ Elasticsearch Integration
-- ✅ Kibana Dashboards
-- ✅ Data Analysis Engine
+### Available Now
+- ✅ CVE Collection
+- ✅ ELK Integration
+- ✅ Dashboards
 
 ### Coming Soon
 - 🚧 Web Interface
-- 🚧 Alert System
-- 🚧 Custom API
-- 🚧 Advanced Reports
+- 🚧 Advanced Alerts
 
-## Project Structure
+## Structure
 ```
-cve_monitoring_system/
-├── src/              # Source code
-├── config/           # Configuration files
-├── tests/            # Test suite
-└── data/             # Data storage
+project/
+├── src/        # Core code
+├── config/     # Settings
+├── tests/      # Testing
+└── data/       # Storage
 ```
 
 ## Contributing
-Contributions are welcome! Fork the repo, make your changes, and submit a pull request.
+Fork the repo, make your changes, and submit a pull request!
 
+## License
+MIT
