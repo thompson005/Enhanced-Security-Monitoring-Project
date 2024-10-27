@@ -12,18 +12,31 @@ The **Security Vulnerability Monitoring System** is an all-in-one solution desig
 - **Automated Alerting**: Notifies users of critical vulnerabilities in real time, helping with rapid response and mitigation.
 
 ## Architecture
-Collectors -> Enrichment -> Analysis -> Storage -> Visualization │ │ │ │ │ └─ CVE └─ CWE └─ Severity └─ Elastic └─ Kibana └─ ExploitDB └─ ThreatInt └─ Trends └─ JSON └─ GitHub Sec └─ MITRE └─ Correl.
-
-markdown
-Copy code
-
 The system follows a modular architecture composed of distinct components, each responsible for specific functionality:
 
+```
+Collectors -> Enrichment -> Analysis -> Storage -> Visualization
+    │            │            │           │           │
+    └─ CVE      └─ CWE       └─ Severity └─ Elastic  └─ Kibana
+    └─ ExploitDB └─ ThreatInt └─ Trends   └─ JSON
+    └─ GitHub Sec └─ MITRE    └─ Correl.
+```
+
+### Component Details
 - **Data Collectors**: Retrieve vulnerability data from sources like CVE databases, Exploit-DB, and GitHub Security Advisories.
 - **Data Enrichment**: Enhances data with contextual information, e.g., adding CWE (Common Weakness Enumeration) details or threat intelligence.
 - **Data Analysis**: Analyzes vulnerability severity and trends over time, detecting correlation patterns among different data points.
 - **Data Storage**: Stores the data in Elasticsearch for fast retrieval and analysis.
 - **Data Visualization**: Uses Kibana for dashboards and reporting, enabling users to view and interpret vulnerability insights.
+
+## ELK Process
+The integration of the ELK stack (Elasticsearch, Logstash, and Kibana) is critical for effective data visualization and monitoring in this system:
+
+1. **Elasticsearch**: Serves as the search and analytics engine where all vulnerability data is stored. Its powerful querying capabilities allow for efficient data retrieval and analysis.
+   
+2. **Logstash**: Acts as a data processing pipeline that ingests data from multiple sources, transforms it, and then sends it to Elasticsearch. In this project, Logstash can be configured to parse the collected vulnerability data into a format suitable for Elasticsearch.
+
+3. **Kibana**: Provides a web-based interface for visualizing and exploring the data stored in Elasticsearch. Users can create custom dashboards and visualizations to monitor vulnerabilities and trends effectively.
 
 ## Technology Stack
 - **Backend**: Python
@@ -47,36 +60,31 @@ Ensure the following are installed:
    ```bash
    git clone https://github.com/thompson005/Enhanced-Security-Monitoring-Project.git
    cd Enhanced-Security-Monitoring-Project
-Install Dependencies
-Install the required Python packages:
+   ```
 
-bash
-Copy code
-pip install -r requirements.txt
-Configure the Collectors
-Copy the example configuration file, then edit it with your settings:
+2. **Install Dependencies**
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-bash
-Copy code
-cp config/collectors_config.yaml.example config/collectors_config.yaml
-Start the Elastic Stack
-Navigate to the config directory and start the ELK stack with Docker Compose:
+3. **Configure the Collectors**
+   ```bash
+   cp config/collectors_config.yaml.example config/collectors_config.yaml
+   ```
 
-bash
-Copy code
-cd config
-docker-compose up -d
-Run the Data Collector
-Begin collecting CVE data with the CVE collector:
+4. **Start the Elastic Stack**
+   ```bash
+   cd config
+   docker-compose up -d
+   ```
 
-bash
-Copy code
-python -m src.collectors.cve_collector
-Directory Structure
-The project's directory layout follows a modular structure for improved organization:
+5. **Run the Data Collector**
+   ```bash
+   python -m src.collectors.cve_collector
+   ```
 
-plaintext
-Copy code
+## Project Structure
+```
 cve_monitoring_system/
 ├── src/
 │   ├── collectors/                  # Data collection modules (e.g., CVE, Exploit-DB)
@@ -89,19 +97,21 @@ cve_monitoring_system/
 ├── docs/                            # Documentation files (e.g., setup, architecture)
 ├── requirements.txt                 # Python dependencies
 └── README.md                        # Project documentation
-System API Endpoints (Planned)
-Note: Flask API management is under development and will be added in future updates.
+```
 
-Running Tests
+## API Endpoints
+**Note**: Flask API management is under development and will be added in future updates.
+
+## Testing
 To verify the functionality, run the test suite:
-
-bash
-Copy code
+```bash
 python -m pytest tests/
-Contributing
+```
+
+## Contributing
 We welcome contributions to improve this project! To contribute:
 
-Fork the repository.
-Create a branch for your feature or bug fix.
-Make your changes and commit them.
-Push your branch and open a pull request.
+1. Fork the repository
+2. Create a branch for your feature or bug fix
+3. Make your changes and commit them
+4. Push your branch and open a pull request
