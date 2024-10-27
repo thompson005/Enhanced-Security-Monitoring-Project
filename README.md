@@ -45,16 +45,18 @@ The **Security Vulnerability Monitoring System** is a real-time tool that tracks
    Password: changeme
    ```
 
-## Architecture
+## Architecture Overview
 
+```
 Collectors → Enrichment → Analysis → Storage → Visualization
-    │            │           │          │           │
-    ├─ CVE      ├─ CWE      ├─ Severity ├─ Elasticsearch ├─ Kibana
-    │            │           │          │           │
-    ├─ ExploitDB ├─ ThreatInt ├─ Trends  ├─ JSON    ├─ Dashboards
-    │            │           │          │           │
-    └─ GitHub Sec └─ Indexing └─ API Calls└─ Storage  └─ Reports                                   
-
+    │           │           │          │           │
+    ├─ CVE     ├─ CWE      ├─ Severity├─ ES       ├─ Kibana
+    │           │           │          │           │
+    ├─ ExploitDB├─ ThreatInt├─ Trends  ├─ JSON    ├─ Dashboards
+    │           │           │          │           │
+    └─ GitHub   └─ Indexing └─ API     └─ Storage └─ Reports
+       Sec
+```
 ## Status
 
 ### Available Now
