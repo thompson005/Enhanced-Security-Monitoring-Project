@@ -1,8 +1,9 @@
 import requests
 import yaml
 import pandas as pd
-from elasticsearch import Elasticsearch
+import os
 from src.utils.logger import logger
+from elasticsearch import Elasticsearch
 
 class CVECollector:
     def __init__(self, config_path):
@@ -17,17 +18,19 @@ class CVECollector:
         url = self.config['cve_api_url']
         try:
             response = requests.get(url)
-            response.raise_for_status()  # Checks for HTTP errors
+            response.raise_for_status()
             logger.info(f"Response Status Code: {response.status_code}")
-            self.cve_data = response.json()  # Load JSON data directly
+            
+            self.cve_data = response.json()
             if isinstance(self.cve_data, list):
                 logger.info("CVE data fetched successfully.")
             else:
                 logger.warning("Unexpected data format. No CVE data found.")
                 self.cve_data = []
+
         except requests.exceptions.RequestException as e:
             logger.error(f"Error fetching CVE data: {e}")
-            self.cve_data = []  # Clear data on error
+            self.cve_data = []
 
     def get_cve_data(self):
         return self.cve_data
@@ -42,6 +45,10 @@ class CVECollector:
         if not self.cve_data:
             logger.warning("No CVE data to save.")
             return
+
+        # Ensure the output directory exists
+        os.makedirs(os.path.dirname(output_path), exist_ok=True)
+
         df = pd.DataFrame(self.cve_data)
         df.to_csv(output_path, index=False)
         logger.info(f"CVE data saved to {output_path}")
@@ -52,7 +59,9 @@ class CVECollector:
             logger.warning("No CVE data to send to Elasticsearch.")
             return
 
-        es = Elasticsearch([{'host': 'localhost', 'port': 9200}])
+        # Adding the 'scheme' parameter to the Elasticsearch connection settings
+        es = Elasticsearch([{'host': 'localhost', 'port': 9200, 'scheme': 'http'}])
+        
         for entry in self.cve_data:
             try:
                 res = es.index(index="cve-index", document=entry)
@@ -62,7 +71,7 @@ class CVECollector:
 
 # Example usage
 if __name__ == "__main__":
-    collector = CVECollector("config/collectors_config.yaml")
+    collector = CVECollector("config/cve_config.yml")
     collector.collect()
     collector.save_to_csv("output/cve_data.csv")
     collector.send_to_elasticsearch()
