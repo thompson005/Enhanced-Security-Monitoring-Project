@@ -49,11 +49,11 @@ A real-time security monitoring solution that tracks, analyzes, and visualizes v
 - ✅ CVE Data Collection
 - ✅ Elasticsearch Integration
 - ✅ Kibana Dashboards
-- ✅ Alert System
 - ✅ Data Analysis Engine
 
 ### Coming Soon
 - 🚧 Web Interface
+- 🚧 Alert System
 - 🚧 Custom API
 - 🚧 Advanced Reports
 
