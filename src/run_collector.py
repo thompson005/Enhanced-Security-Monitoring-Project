@@ -1,20 +1,25 @@
-import os
-from src.collectors.cve_collector import CVECollector
+import logging
+from collectors.cve_collector import CVECollector
+from collectors.github_security_collector import GithubSecurityCollector
+
+# Set up logging configuration
+logging.basicConfig(level=logging.INFO)
 
 def main():
-    # Set up paths
-    config_path = os.path.join("config", "collectors_config.yaml")
-    collector = CVECollector(config_path)
+    # Paths to configuration files
+    cve_config_path = 'config/cve_config.yaml'
+    github_config_path = 'config/github_config.yaml'
+    kafka_topic = 'cve_data'  # Your Kafka topic name
 
-    # Collect CVE data
-    cve_data = collector.collect()
+    # Initialize the CVE Collector
+    cve_collector = CVECollector(cve_config_path, kafka_topic)
+    # Initialize the GitHub Security Collector
+    github_collector = GithubSecurityCollector(github_config_path)
 
-    # Send CVE data to Logstash
-    collector.send_to_logstash(cve_data)  # This line sends data to Logstash
-
-    # Save to CSV if needed
-    output_csv_path = os.path.join("data/raw", "cve_data.csv")
-    collector.save_to_csv(output_csv_path)
+    # Collect CVE data and send it to Kafka
+    cve_collector.collect()
+    # Collect GitHub security advisory data
+    github_collector.collect()  
 
 if __name__ == "__main__":
     main()

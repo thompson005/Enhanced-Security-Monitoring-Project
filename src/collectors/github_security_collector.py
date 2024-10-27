@@ -1,11 +1,9 @@
 import requests
 import yaml
 import os
-from dotenv import load_dotenv
-from src.utils.logger import logger
+import logging
 
-# Load environment variables from .env file
-load_dotenv()
+logger = logging.getLogger(__name__)
 
 class GithubSecurityCollector:
     def __init__(self, config_path):
@@ -30,5 +28,5 @@ class GithubSecurityCollector:
         except requests.exceptions.RequestException as e:
             logger.error(f"Error fetching GitHub security data: {e}")
 
-    def get_github_data(self):
-        return self.github_data
+    def collect(self):
+        self.fetch_github_data()
