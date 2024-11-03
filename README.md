@@ -48,13 +48,13 @@ The **Security Vulnerability Monitoring System** is a real-time tool that tracks
 ## Architecture Overview
 
 ```
-Collectors → Enrichment → Analysis → Storage → Visualization
-    │           │           │          │           │
-    ├─ CVE     ├─ CWE       ├─ Severity├─ ES       ├─ Kibana
-    │           │           │          │           │
-    ├─ ExploitDB├─ ThreatInt├─ Trends  ├─ JSON    ├─ Dashboards
-    │           │           │          │           │
-    └─ GitHub   └─ Indexing └─ API     └─ Storage └─ Reports
+Collectors →   Enrichment  →   Analysis →   Storage → Visualization
+    │            │               │             │           │
+    ├─ CVE       ├─ CWE          ├─ Severity   ├─ ES       ├─ Kibana
+    │            │               │             │           │
+    ├─ ExploitDB ├─ ThreatInt    ├─ Trends     ├─ JSON     ├─ Dashboards
+    │            │               │             │           │
+    └─ GitHub    └─ Indexing     └─ API        └─ Storage  └─ Reports
        Sec
 ```
 ## Status
