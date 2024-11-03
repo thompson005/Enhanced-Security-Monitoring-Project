@@ -50,7 +50,7 @@ The **Security Vulnerability Monitoring System** is a real-time tool that tracks
 ```
 Collectors → Enrichment → Analysis → Storage → Visualization
     │           │           │          │           │
-    ├─ CVE     ├─ CWE      ├─ Severity├─ ES       ├─ Kibana
+    ├─ CVE     ├─ CWE       ├─ Severity├─ ES       ├─ Kibana
     │           │           │          │           │
     ├─ ExploitDB├─ ThreatInt├─ Trends  ├─ JSON    ├─ Dashboards
     │           │           │          │           │
