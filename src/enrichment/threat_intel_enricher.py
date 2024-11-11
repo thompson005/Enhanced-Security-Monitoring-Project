@@ -3,7 +3,7 @@ from src.utils.logger import logger
 
 class ThreatIntelEnricher:
     def __init__(self):
-        self.threat_intel_api_url = "https://threat-intel-api.example.com/threats/"  # Placeholder URL
+        self.threat_intel_api_url = "https://threat-intel-api.com/threats/"  # Placeholder URL
 
     def enrich(self, cve_data):
         enriched_data = []
